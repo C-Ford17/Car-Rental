@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import RentForm from '../components/RentForm';
 import { useCarContext } from '../context/carContext';
 
 const RentFormPage = () => {
@@ -21,14 +20,46 @@ const RentFormPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: 'SET_RENTER_INFO', payload: form });
 
-    fetch(`http://localhost:8080/api/cars/${state.selectedCar.id}`, {
-      method: 'DELETE',
+    // Guardar información del usuario
+    fetch('http://192.168.1.187:8080/api/users', {
+      method: 'POST',
+      headers: {  
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(form)
     })
-    .then(() => {
-      dispatch({ type: 'REMOVE_CAR', payload: state.selectedCar.id });
-      navigate('/summary');
+    .then(response => response.json())
+    .then(user => {
+      dispatch({ type: 'SET_RENTER_INFO', payload: user });
+
+      // Guardar historial de renta
+      const rentHistoryToSaveDTO = {
+        userName: user.firstName,
+        userIdNumber : user.idNumber,
+        carName: state.selectedCar.name,
+        carImage: state.selectedCar.image
+      };
+      console.log(rentHistoryToSaveDTO)
+
+      fetch('http://192.168.1.187:8080/api/rentHistory', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(rentHistoryToSaveDTO)
+      })
+      .then(() => {
+        fetch(`http://192.168.1.187:8080/api/cars/${state.selectedCar.id}`, {
+          method: 'DELETE',
+        })
+        .then(() => {
+          dispatch({ type: 'REMOVE_CAR', payload: state.selectedCar.id });
+          navigate('/summary');
+        })
+        .catch(error => console.error('Error:', error));
+      })
+      .catch(error => console.error('Error:', error));
     })
     .catch(error => console.error('Error:', error));
   };

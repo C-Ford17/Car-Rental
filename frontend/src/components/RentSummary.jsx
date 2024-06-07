@@ -11,6 +11,7 @@ const RentSummary = ({ selectedCar, renterInfo }) => {
       <p>Name: {selectedCar.name}</p>
       <p>Model: {selectedCar.model}</p>
       <p>Location: {selectedCar.location}</p>
+      <p>Price : {selectedCar.price}</p>
       <p>Available From: {selectedCar.availableFrom}</p>
       <p>Available To: {selectedCar.availableTo}</p>
       <h2>Renter Information</h2>

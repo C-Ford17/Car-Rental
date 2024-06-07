@@ -6,6 +6,8 @@ const AddCarModal = ({ onClose }) => {
   const [car, setCar] = useState({
     name: '',
     location: '',
+    model: '',
+    price: '',
     availableFrom: '',
     availableTo: '',
     image: ''
@@ -18,7 +20,7 @@ const AddCarModal = ({ onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:8080/api/cars', {
+    fetch('http://192.168.1.187:8080/api/cars', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -51,6 +53,22 @@ const AddCarModal = ({ onClose }) => {
             name="location"
             placeholder="Location"
             value={car.location}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="model"
+            placeholder="Model"
+            value={car.model}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="price"
+            placeholder="Price"
+            value={car.price}
             onChange={handleChange}
             required
           />
