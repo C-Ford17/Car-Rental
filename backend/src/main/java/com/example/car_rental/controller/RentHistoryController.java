@@ -67,4 +67,9 @@ public class RentHistoryController {
             return ResponseEntity.badRequest().body("id doesn't exist");
         }
     }
+    @DeleteMapping("/clear")
+    public ResponseEntity<Void> clearRentHistory() {
+        rentHistoryService.deleteAllRentHistories();
+        return ResponseEntity.noContent().build();
+    }
 }

@@ -43,4 +43,10 @@ public class RentHistoryService {
         RentHistory rentHistory = rentHistoryRepository.findById(id).orElseThrow(RentHistoryNotFoundException::new);
         return rentHistoryMapper.rentHistoryToRentHistoryDTO(rentHistory);
     }
+
+    public void deleteAllRentHistories() {
+        if (rentHistoryRepository.count()!= 0){
+            rentHistoryRepository.deleteAll();
+        }else{throw new NotAbleToDeleteException();}
+    }
 }

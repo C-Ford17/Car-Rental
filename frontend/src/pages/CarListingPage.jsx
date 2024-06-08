@@ -1,18 +1,18 @@
 import React, { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCarContext } from '../context/carContext';
+import { useUserContext } from '../context/userContext';
 import CarList from '../components/CarList';
 import AddCarModal from '../components/AddCarModal';
 import './CarListingPage.css';
-import { useUserContext } from '../context/userContext';
 
 
 const CarListingPage = () => {
   const { state, dispatch } = useCarContext();
+  const { state : user} = useUserContext();
   const [filters, setFilters] = useState({ location: '', priceMinor: '', priceMajor: '', startDate: '', endDate: '' });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
-  const { state : user } = useUserContext();
 
   useEffect(() => {
     fetch('http://localhost:8080/api/cars')
@@ -26,15 +26,15 @@ const CarListingPage = () => {
   };
 
   const handleRentClick = (car) => {
-    if (!state.renterInfo) {
+    if (!user.selectedUser) {
       alert('Please select a user before renting a car.');
       navigate('/select-user');
       return;
     }
 
-    const confirmRent = window.confirm(`Are you sure you want to rent the car ${car.name} by user ${state.renterInfo.firstName} ${state.renterInfo.lastName} (ID: ${state.renterInfo.idNumber})?`);
+  const confirmRent = window.confirm(`Are you sure you want to rent the car ${car.name} by user ${user.selectedUser.firstName} ${user.selectedUser.lastName} (ID: ${user.selectedUser.idNumber})?`);
     if (confirmRent) {
-      dispatch({ type: 'SET_SELECTED_CAR', payload: car });
+      dispatch({ type: 'SELECT_CAR', payload: car });
       navigate('/summary');
     }
   };

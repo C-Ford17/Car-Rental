@@ -1,0 +1,74 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 300px;
+}
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .user-list-modal {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    width: 100%;
+  }
+  
+  .user-item-modal {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .user-item-modal:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .user-item-modal.selected {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"] {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #c82333;
+  }
+  
+  button[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  button[type="button"] {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  button[type="button"]:hover {
+    background-color: #5a6268;
+  }

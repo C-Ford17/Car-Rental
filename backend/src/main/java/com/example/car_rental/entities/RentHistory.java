@@ -1,10 +1,14 @@
 package com.example.car_rental.entities;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,4 +28,6 @@ public class RentHistory {
     private String userIdNumber;
     private String carName;
     private String carImage;
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime rentDate;
 }

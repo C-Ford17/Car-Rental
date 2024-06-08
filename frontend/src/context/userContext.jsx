@@ -4,16 +4,13 @@ const UserContext = createContext();
 
 const initialState = {
   users: [],
-  selectedUser: null,
-  renterInfo: null,
+  selectedUser: null
 };
 
 function userReducer(state, action) {
   switch (action.type) {
     case 'SELECT_USER':
       return { ...state, selectedUser: action.payload };
-    case 'SET_RENTER_INFO':
-      return { ...state, renterInfo: action.payload };
     case 'SET_USERS':
       return { ...state, users: action.payload };
     case 'ADD_USER':
