@@ -4,15 +4,18 @@ import { useCarContext } from '../context/carContext';
 import CarList from '../components/CarList';
 import AddCarModal from '../components/AddCarModal';
 import './CarListingPage.css';
+import { useUserContext } from '../context/userContext';
+
 
 const CarListingPage = () => {
   const { state, dispatch } = useCarContext();
   const [filters, setFilters] = useState({ location: '', priceMinor: '', priceMajor: '', startDate: '', endDate: '' });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+  const { state : user } = useUserContext();
 
   useEffect(() => {
-    fetch('http://192.168.1.187:8080/api/cars')
+    fetch('http://localhost:8080/api/cars')
       .then(response => response.json())
       .then(data => dispatch({ type: 'SET_CARS', payload: data }));
   }, [dispatch]);

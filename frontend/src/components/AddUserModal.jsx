@@ -85,3 +85,5 @@ const AddUserModal = ({ onClose }) => {
     </div>
   );
 };
+
+export default AddUserModal;

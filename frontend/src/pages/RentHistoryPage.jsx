@@ -7,7 +7,7 @@ const RentHistoryPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://192.168.1.187:8080/api/rentHistory')
+    fetch('http://localhost:8080/api/rentHistory')
       .then(response => response.json())
       .then(data => setRentHistories(data));
   }, []);

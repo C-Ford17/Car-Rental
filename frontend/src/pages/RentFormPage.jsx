@@ -22,7 +22,7 @@ const RentFormPage = () => {
     e.preventDefault();
 
     // Guardar información del usuario
-    fetch('http://192.168.1.187:8080/api/users', {
+    fetch('http://localhost:8080/api/users', {
       method: 'POST',
       headers: {  
         'Content-Type': 'application/json'
@@ -42,7 +42,7 @@ const RentFormPage = () => {
       };
       console.log(rentHistoryToSaveDTO)
 
-      fetch('http://192.168.1.187:8080/api/rentHistory', {
+      fetch('http://localhost:8080/api/rentHistory', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ const RentFormPage = () => {
         body: JSON.stringify(rentHistoryToSaveDTO)
       })
       .then(() => {
-        fetch(`http://192.168.1.187:8080/api/cars/${state.selectedCar.id}`, {
+        fetch(`http://localhost:8080/api/cars/${state.selectedCar.id}`, {
           method: 'DELETE',
         })
         .then(() => {

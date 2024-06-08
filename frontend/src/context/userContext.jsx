@@ -8,7 +8,7 @@ const initialState = {
   renterInfo: null,
 };
 
-function carReducer(state, action) {
+function userReducer(state, action) {
   switch (action.type) {
     case 'SELECT_USER':
       return { ...state, selectedUser: action.payload };
@@ -26,7 +26,7 @@ function carReducer(state, action) {
 }
 
 export const UserProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(carReducer, initialState);
+  const [state, dispatch] = useReducer(userReducer, initialState);
 
   return (
     <UserContext.Provider value={{ state, dispatch }}>
@@ -35,4 +35,4 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-export const useUserContext = () => useContext(CarContext);
+export const useUserContext = () => useContext(UserContext);

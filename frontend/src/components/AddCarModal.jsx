@@ -20,7 +20,7 @@ const AddCarModal = ({ onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://192.168.1.187:8080/api/cars', {
+    fetch('http://localhost:8080/api/cars', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

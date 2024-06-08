@@ -6,9 +6,11 @@ import RentSummaryPage from './pages/RentSummaryPage';
 import { CarProvider } from './context/carContext';
 import RentHistoryPage from './pages/RentHistoryPage';
 import UserSelectionPage from './pages/UserSelectionPage';
+import { UserProvider } from './context/userContext';
 
 const App = () => {
   return (
+    <UserProvider>
     <CarProvider>
       <Router>
         <Routes>
@@ -20,6 +22,7 @@ const App = () => {
         </Routes>
       </Router>
     </CarProvider>
+    </UserProvider>
   );
 };
 
