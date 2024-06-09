@@ -50,14 +50,17 @@ const cancelClearHistory = () => {
       <div className="rent-history-list">
         {state.rentHistories.map(rent => (
           <div key={rent.id} className="rent-history-item">
-            <h2>Car Details</h2>
-            <p><strong>Car Name:</strong> {rent.carName}</p>
-            <img src={rent.carImage} alt={rent.carImage} className="car-image" />
-
-            <h2>User Details</h2>
-            <p><strong>Name:</strong> {rent.userName }</p>
-            <p><strong>ID Number:</strong> {rent.userIdNumber}</p>
+          <div className="details">
+            <h2>Detalles del Carro</h2>
+            <p><strong>Nombre del Carro:</strong> {rent.carName}</p>
+        
+            <h2>Detalles del Usuario</h2>
+            <p><strong>Nombre:</strong> {rent.userName}</p>
+            <p><strong>Número de Identificación:</strong> {rent.userIdNumber}</p>
           </div>
+          <img src={rent.carImage} alt={rent.carImage} className="car-image" />
+        </div>
+        
         ))}
       </div>
       <button onClick={handleClearHistory} className="clear-history-button">Clear History</button>

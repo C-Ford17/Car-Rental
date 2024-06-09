@@ -6,11 +6,11 @@ const CarItem = ({ car, onRentClick }) => {
           <div className="car-item">
             <img src={car.image} alt={`${car.name} car`} className="car-image" />
             <h2>{car.name}</h2>
-            <p>Location: {car.location}</p>
-            <p>Model: {car.model}</p>
-            <p>Price : {car.price}</p>
-            <p>Available From: {car.availableFrom}</p>
-            <p>Available To: {car.availableTo}</p>
+            <p><strong>Location:</strong> {car.location}</p>
+            <p><strong>Model:</strong> {car.model}</p>
+            <p><strong>Price:</strong> {car.price}</p>
+            <p><strong>Available From:</strong> {car.availableFrom}</p>
+            <p><strong>Available To:</strong> {car.availableTo}</p>
             <button onClick={() => onRentClick(car)}>Rent</button>
           </div>
         );

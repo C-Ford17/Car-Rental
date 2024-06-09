@@ -5,24 +5,11 @@ body {
   box-sizing: border-box;
 }
 
-.car-item {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
-}
-
-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
+#root {
+  max-width: 1920px;
+  margin: 40px;
+  padding: 2rem;
+  text-align: center;
 }
 
 form input {
@@ -90,7 +77,6 @@ button:hover {
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
 }
 
 .car-item h2 {
@@ -126,7 +112,6 @@ button:hover {
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
 }
 
 .car-item h2 {
@@ -155,83 +140,4 @@ button:hover {
 
 .car-item button:hover {
   background-color: #0056b3;
-}
-
-.car-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px;
-  padding: 20px;
-}
-
-.car-item {
-  background-color: #f8f8f8;
-  padding: 16px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.car-item h2 {
-  margin: 0 0 8px 0;
-}
-
-.car-item p {
-  margin: 4px 0;
-}
-
-.car-item img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 8px;
-}
-
-.car-item button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.car-item button:hover {
-  background-color: #0056b3;
-}
-
-.rent-history {
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.rent-history h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.rent-history-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.rent-history-item {
-  border: 1px solid #ccc;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-
-.rent-history-item h2 {
-  margin-top: 0;
-}
-
-.car-image {
-  width: 150px;
-  height: 100px;
-  object-fit: cover;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
