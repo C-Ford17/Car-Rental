@@ -4,7 +4,7 @@ Create a PostgreSQL Database
 
 Modifying the application.properties file Entering the corresponding database name and PostgreSQL password
 
-Running the carrentalapplication file
+Running the CarRentalApplication file
 
 
 # Frontend
